@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+        <title>Coding Quiz</title>
+    </head>
+
+    <body>
+        <main>
+            <div class="container h-100 d-flex justify-content-center">
+                <div class="card text-center start" style="width: 60rem;">
+                    <div class="card-header">
+                        <h5 class="card-title">Coding Quiz Challenge</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Try to answer as many questions as you can correctly before the time runs out.  Each missed question will incur a time penalty.</p>
+                        <button type="submit" class="btn btn-outline-dark start-button">Start Quiz</button>
+                        <button type="submit" class="btn btn-outline-dark show-high-score-button">Show High Scores</button>
+                    </div>
+                    <div class="card-footer">
+                        <p></p>
+                    </div>
+                </div>
+
+                <div class="card text-center quiz" style="width: 60rem;">
+                    <div class="card-header">
+                        <div class="timer">Time remaining: </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text questions-text">Question Text</p>
+                        <button type="submit" class="btn btn-outline-dark answer-1-button" onclick="checkAnswer('1')">1</button>
+                        <button type="submit" class="btn btn-outline-dark answer-2-button" onclick="checkAnswer('2')">2</button>
+                        <button type="submit" class="btn btn-outline-dark answer-3-button" onclick="checkAnswer('3')">3</button>
+                        <button type="submit" class="btn btn-outline-dark answer-4-button" onclick="checkAnswer('4')">4</button>
+                        <p class="result-text"></p>
+                    </div>
+                    <div class="card-footer">
+                        <p></p>
+                    </div>
+                </div>  
+
+                <div class="card text-center game-over" style="width: 60rem;">
+                    <div class="card-header">
+                        <h5 class="card-title">Final Score</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="final-score"></p>                        
+                        <form>
+                            <div class="input-group mb-3">
+                                <button class="btn btn-outline-dark initials-submit-button" type="button">Submit Score</button>
+                                <input type="text" class="form-control" placeholder="Enter your initials" id="final-score-initials">
+                            </div>
+                            <p class="error-text"></p>
+                        </form>
+                        <p class="result-text"></p>
+                    </div>
+                    <div class="card-footer">
+                        <p></p>
+                    </div>
+                </div>
+
+                <div class="card text-center high-scores" style="width: 60rem;">
+                    <div class="card-header">
+                        <h5 class="card-title">High Scores</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6 text-center"><h4>Initials</h4>
+                                    <ul class="list-group list-group-flush high-score-initials"></ul>
+                                </div>                                
+                                <div class="col-6 text-center"><h4>Score</h4>
+                                    <ul class="list-group list-group-flush high-score-score"></ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div></div>
+                        <button type="submit" class="btn btn-outline-dark play-again-button">Start Quiz</button>
+                        <button type="submit" class="btn btn-outline-dark clear-high-scores-button">Clear High Scores</button>
+                    </div>
+                    <div class="card-footer">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="assets/js/script.js"></script>
+    </body>
+</html>
