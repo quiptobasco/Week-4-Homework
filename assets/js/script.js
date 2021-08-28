@@ -87,13 +87,14 @@ function startQuiz() {
     //start timer, hide start card and show quiz card, get first question
     quizDisplay.style.display = "block";
     startDisplay.style.display = "none";
-
     timerCount = 120;
     currentQuestion = 0;
     score = 0;
+
     timerEl.textContent = "Time remaining: " + timerCount + " seconds.";
-    getQuestion();
+
     startTimer();
+    getQuestion();
 }
 
 function startTimer() {
@@ -105,7 +106,6 @@ function startTimer() {
             clearInterval(timer);
             showScore();
         }
-
     }, 1000);
 }
 
@@ -162,33 +162,33 @@ function showScore() {
 }
 
 function highScore() {
-        errorText.textContent = "";
-        // check to make sure initials entered, otherwise display error in red on screen
-        if (initials.value === "") {
-            errorText.style.color = "red";
-            errorText.textContent = "You must enter your initials.";
-            return false;
-        } else {
-        // get savedScores from local storage, or create new array if null    
-            var savedScores = JSON.parse(localStorage.getItem("savedScores")) || [];
-        // set var player to the initials submitted and trim white space before and after value    
-            var player = initials.value.trim();
-        // set currHighScore object
-            var currHighScore = {
-                playerName : player, 
-                score : score
-            };
-        // Hide all cards, show the high score card    
-            gameOverDisplay.style.display = "none";
-            quizDisplay.style.display = "none";
-            startDisplay.style.display = "none";
-            highScoreDisplay.style.display = "block";
-        // add currHighScore to savedScores array
-            savedScores.push(currHighScore);
-        // save high scores to local storage as JSON
-            localStorage.setItem("savedScores", JSON.stringify(savedScores));
-            generateScores();
-        }
+    errorText.textContent = "";
+    // check to make sure initials entered, otherwise display error in red on screen
+    if (initials.value === "") {
+        errorText.style.color = "red";
+        errorText.textContent = "You must enter your initials.";
+        return false;
+    } else {
+    // get savedScores from local storage, or create new array if null    
+        var savedScores = JSON.parse(localStorage.getItem("savedScores")) || [];
+    // set var player to the initials submitted and trim white space before and after value    
+        var player = initials.value.trim();
+    // set currHighScore object
+        var currHighScore = {
+            playerName : player, 
+            score : score
+        };
+    // Hide all cards, show the high score card    
+        gameOverDisplay.style.display = "none";
+        quizDisplay.style.display = "none";
+        startDisplay.style.display = "none";
+        highScoreDisplay.style.display = "block";
+    // add currHighScore to savedScores array
+        savedScores.push(currHighScore);
+    // save high scores to local storage as JSON
+        localStorage.setItem("savedScores", JSON.stringify(savedScores));
+        generateScores();
+    }
 }
 
 function generateScores() {
