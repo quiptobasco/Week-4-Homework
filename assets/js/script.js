@@ -85,8 +85,8 @@ var finalQuestion = questions.length;
 
 function startQuiz() {
     //start timer, hide start card and show quiz card, get first question
-    quizDisplay.style.display = "block";
     startDisplay.style.display = "none";
+    quizDisplay.style.display = "block";
     timerCount = 120;
     currentQuestion = 0;
     score = 0;
@@ -178,10 +178,8 @@ function highScore() {
             playerName : player, 
             score : score
         };
-    // Hide all cards, show the high score card    
+    // Hide game over card, show the high score card    
         gameOverDisplay.style.display = "none";
-        quizDisplay.style.display = "none";
-        startDisplay.style.display = "none";
         highScoreDisplay.style.display = "block";
     // add currHighScore to savedScores array
         savedScores.push(currHighScore);
@@ -222,11 +220,10 @@ function clearHighScores() {
 }
 
 function showHighScores() {
-    // hide all cards except the high score card
+    // hide game over and start cards show the high score card
     gameOverDisplay.style.display = "none";
-    quizDisplay.style.display = "none";
-    highScoreDisplay.style.display = "block";
     startDisplay.style.display = "none";
+    highScoreDisplay.style.display = "block";
     generateScores();
 }
 
@@ -249,5 +246,5 @@ function init() {
     showHighScoresBtn.addEventListener("click", showHighScores);
 }
 
-// initialize the script
+// call the initialize function
 init();
