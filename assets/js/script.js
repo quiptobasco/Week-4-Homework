@@ -163,19 +163,18 @@ function showScore() {
 
 function highScore() {
     errorText.textContent = "";
+    initialsTrimmed = initials.value.trim();
     // check to make sure initials entered, otherwise display error in red on screen
-    if (initials.value === "") {
+    if (initialsTrimmed === "") {
         errorText.style.color = "red";
         errorText.textContent = "You must enter your initials.";
         return false;
     } else {
     // get savedScores from local storage, or create new array if null    
         var savedScores = JSON.parse(localStorage.getItem("savedScores")) || [];
-    // set var player to the initials submitted and trim white space before and after value    
-        var player = initials.value.trim();
     // set currHighScore object
         var currHighScore = {
-            playerName : player, 
+            playerName : initialsTrimmed, 
             score : score
         };
     // Hide game over card, show the high score card    
